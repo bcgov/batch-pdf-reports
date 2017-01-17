@@ -1,0 +1,93 @@
+---
+title: |
+    | Summary Report for the
+    | Ministry of `r id`
+author: "BC Stats"
+output:
+  pdf_document: default
+
+---
+
+
+
+```{r setup, include=FALSE, message= FALSE }
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+\centering
+
+\includegraphics{data/BCStats.png}
+
+\raggedright
+\clearpage
+\tableofcontents
+
+\newpage
+
+## Executive Summary
+
+### Engagement States
+
+The Ministry of `r id` had `r dataset %>% dplyr::filter(ORGID15 == id) %>% nrow()` employees in 2015. According to the survey, there were `r dataset %>% dplyr::filter(ORGID15 == id & ENG_STATE_15 == "Engaged") %>% nrow()` engaged employees in the ministry, while `r dataset %>% dplyr::filter(ORGID15 == id & ENG_STATE_15 == "Disengaged") %>% nrow()` employees were disengaged. 
+
+
+```{r Figure 1, echo= FALSE, message= FALSE }
+ggplot(data = dataset %>% dplyr::filter(ORGID15 == id), aes(x=ENG_STATE_15)) +
+  ggtitle("Figure 1: Distribution of Engagement States") +
+  geom_bar(stat="count", fill="DarkGreen") +
+  theme_classic() +
+  theme(panel.grid.minor = element_blank(),
+          axis.line = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5),
+          axis.text.x = element_text(angle = 25, vjust = 0.75))
+    
+  
+  
+```
+
+\newpage
+
+### Commitment and Job Satisfaction
+
+In 2015, the Ministry of `r id` had an average commitment score of `r dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15)) %>% summarise(avg = mean(Commitment_15))` and an average job satisfaction score of `r dataset %>% dplyr::filter(ORGID15 == id & !is.na(Job_Satisfaction_15)) %>% summarise(avg = mean(Job_Satisfaction_15))`. 
+
+The average commitment scores varied for individuals across different engagement states.
+
+```{r Figure 2, echo= FALSE, message= FALSE }
+ggplot(data = dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15) & !is.na(Job_Satisfaction_15)),
+       aes(ENG_STATE_15)) +
+  ggtitle("Figure 2: Commitment Across Engagement States") +
+  stat_summary_bin(aes(y = Commitment_15), fun.y = "mean", geom = "bar", fill = "darkblue") +
+  theme_classic() +
+  theme(panel.grid.minor = element_blank(),
+          axis.line = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5),
+          axis.text.x = element_text(angle = 25, vjust = 0.75))
+    
+  
+  
+```
+
+In addition, the average job satisfaction scores varied for individuals across different engagement states as well
+
+```{r Figure 3, echo= FALSE, message= FALSE }
+ggplot(data = dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15) & !is.na(Job_Satisfaction_15)),
+       aes(ENG_STATE_15)) +
+  ggtitle("Figure 3: Job Satisfaction Across Engagement States") +
+  stat_summary_bin(aes(y = Job_Satisfaction_15), fun.y = "mean", geom = "bar", fill = "lightblue") +
+  theme_classic() +
+  theme(panel.grid.minor = element_blank(),
+          axis.line = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          plot.title = element_text(hjust = 0.5),
+          axis.text.x = element_text(angle = 25, vjust = 0.75))
+
+  
+  
+```
