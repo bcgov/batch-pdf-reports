@@ -1,8 +1,15 @@
+Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc") # Need to explicitly define pandoc location for Rscript
+
 library(readr)
 library(rmarkdown)
 library(ggplot2)
 library(dplyr)
+
+# Read the dataset
+
 dataset <- read_csv("data/sampledata.csv")
+
+# Loop to generate PDF files for all unique ministires in the dataset
 
 for (id in unique(dataset$ORGID15))
 {
