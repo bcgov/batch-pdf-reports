@@ -3,6 +3,8 @@ title: |
     | Summary Report for the
     | Ministry of `r id`
 author: "BC Stats"
+header-includes:
+   - \usepackage{wallpaper}
 output:
   pdf_document: default
 
@@ -17,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \centering
 
-\includegraphics{data/BCStats.png}
+\ThisTileWallPaper{\paperwidth}{\paperheight}{data/1511.jpg}
 
 \raggedright
 \clearpage
@@ -72,7 +74,7 @@ ggplot(data = dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15) & 
   
   
 ```
-
+\newpage
 In addition, the average job satisfaction scores varied for individuals across different engagement states as well
 
 ```{r Figure 3, echo= FALSE, message= FALSE }
