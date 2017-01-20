@@ -6,8 +6,10 @@ author: "BC Stats"
 header-includes:
    - \usepackage{wallpaper}
 output:
-  pdf_document: default
-
+  pdf_document:
+    pandoc_args: [
+      "-V", "classoption=twocolumn"
+    ]
 ---
 
 
@@ -49,6 +51,10 @@ ggplot(data = dataset %>% dplyr::filter(ORGID15 == id), aes(x=ENG_STATE_15)) +
   
   
 ```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum bibendum augue ut viverra. Aenean ac elementum massa, eget vestibulum nulla. Donec dolor diam, finibus eu massa at, blandit euismod urna. Curabitur sollicitudin maximus purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam nec nisi eu eros aliquet volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sit amet dolor augue. Aliquam ac leo vehicula, rutrum nisi sed, tempus est. Maecenas sodales, lacus a molestie ultricies, risus enim mattis neque, in pulvinar enim purus nec magna. Nulla rutrum elementum orci, at mollis magna mollis molestie. Duis mauris tellus, convallis non sodales non, pellentesque id lectus. Nulla a quam nisi. In lobortis, est id accumsan laoreet, leo arcu efficitur justo, id porttitor velit urna at augue. Vivamus id sapien nec metus viverra vulputate. Aliquam eu pulvinar dui, ac sollicitudin eros.
+
+Ut quis nulla leo. Donec eu metus quis mauris malesuada feugiat sed a ante. Cras tristique magna sed pharetra luctus. Phasellus consequat augue at consequat porttitor. Morbi in faucibus est, eu vehicula sem. Aliquam maximus orci eget dui fringilla, nec egestas turpis hendrerit. Morbi facilisis felis nisl, ut lacinia lectus mattis vel. Fusce commodo mauris augue, et ultrices nisl feugiat sit amet. 
+
 
 \newpage
 
@@ -74,6 +80,10 @@ ggplot(data = dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15) & 
   
   
 ```
+Vestibulum vitae erat tempus, lacinia dui non, scelerisque risus. Proin est enim, egestas rutrum lorem quis, auctor scelerisque metus. Duis risus arcu, commodo venenatis mauris a, lobortis blandit diam. Duis vel tellus turpis. Vivamus sollicitudin vestibulum ante eu condimentum. Cras venenatis, massa ut sodales consequat, arcu purus egestas felis, ut sagittis mi nisi volutpat risus. Fusce sed risus ac velit condimentum dapibus sed nec quam. Pellentesque rutrum odio massa, in vulputate ante pharetra a. Donec rhoncus sapien at mi sagittis, euismod auctor felis suscipit. Curabitur a tellus diam. Nullam pulvinar odio quis nunc accumsan, scelerisque egestas nulla fermentum. Donec elementum nec orci eu porttitor. Proin eu pharetra ante.
+
+Ut iaculis, purus a gravida ultrices, felis massa convallis lorem, ut faucibus quam ligula sit amet quam. Aliquam vitae justo sed libero volutpat fringilla id in leo. Fusce erat urna, imperdiet a vulputate sed, interdum facilisis nisl. Sed et gravida ex, ac congue lectus. Duis et euismod nisi, vel efficitur eros. Ut a sagittis odio. Donec eget condimentum ipsum, at fermentum sapien. Etiam tempus vitae ipsum sit amet pellentesque. 
+
 \newpage
 In addition, the average job satisfaction scores varied for individuals across different engagement states as well
 
@@ -93,3 +103,4 @@ ggplot(data = dataset %>% dplyr::filter(ORGID15 == id & !is.na(Commitment_15) & 
   
   
 ```
+Curabitur vel nunc quis augue eleifend faucibus eu et erat. Nulla consectetur diam nisi, in euismod dui pharetra id. Quisque id dui quis nunc convallis scelerisque nec et nisl. Maecenas volutpat massa in accumsan lacinia. Sed maximus, purus in faucibus tincidunt, felis mauris ultrices lorem, at auctor velit tortor et tellus. Vestibulum pretium orci in placerat placerat. Donec in mattis mi. Etiam cursus volutpat gravida. Vestibulum tortor sapien, elementum vitae justo sit amet, mattis fringilla ligula. Nullam gravida, nibh a malesuada molestie, velit risus placerat ipsum, at auctor magna diam a orci. Ut blandit efficitur tellus et porttitor. Donec a ante eget neque tincidunt sollicitudin. Donec efficitur augue quis mauris faucibus, et aliquam nulla iaculis. Morbi tincidunt tristique dui, aliquam fermentum tellus rutrum sit amet. Praesent velit magna, imperdiet ac sollicitudin in, maximus lobortis lorem.
