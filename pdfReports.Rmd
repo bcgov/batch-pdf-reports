@@ -6,10 +6,8 @@ author: "BC Stats"
 header-includes:
    - \usepackage{wallpaper}
 output:
-  pdf_document:
-    pandoc_args: [
-      "-V", "classoption=twocolumn"
-    ]
+  pdf_document: default
+
 ---
 
 
