@@ -9,7 +9,7 @@ library(dplyr)
 
 dataset <- read_csv("data/sampledata.csv")
 
-# Loop to generate PDF files for all unique ministires in the dataset
+# Loop to generate PDF files for all unique ministries in the dataset
 
 for (id in unique(dataset$ORGID15))
 {
